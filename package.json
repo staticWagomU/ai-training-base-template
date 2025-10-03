@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "biome check",
     "format": "biome format --write",
+    "format:check": "biome format",
     "test": "vitest",
     "typecheck": "tsc --noEmit"
   },
@@ -26,6 +27,7 @@
     "@types/react-dom": "^19",
     "@vitejs/plugin-react": "^5.0.4",
     "jsdom": "^27.0.0",
+    "lefthook": "^1.13.6",
     "tailwindcss": "^4",
     "typescript": "^5",
     "vite-tsconfig-paths": "^5.1.4",
