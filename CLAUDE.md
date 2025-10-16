@@ -21,6 +21,94 @@ Kiro-style Spec Driven Development implementation using claude code slash comman
 ## Development Guidelines
 - Think in English, but generate responses in Japanese (思考は英語、回答の生成は日本語で行うように)
 
+## Technology Stack
+
+### Core Framework
+- **Next.js**: 15.5.4 (App Router with Turbopack build system)
+- **React**: 19.1.0
+- **TypeScript**: 5.x
+
+### UI & Styling
+- **Tailwind CSS**: v4 (with PostCSS integration)
+- **Fonts**: Geist Sans & Geist Mono (via next/font)
+
+### AI Integration
+- **Vercel AI SDK**: 5.0.60 - Unified interface for AI model integration
+- **OpenRouter Provider**: 1.2.0 - Multi-model AI provider support
+- **use-chat-submit**: 1.0.5 - Chat interaction utilities
+
+### Development Tools
+- **Linting & Formatting**: Biome 2.2.0 (replaces ESLint & Prettier)
+- **Testing**:
+  - Vitest 3.2.4 (test runner)
+  - Testing Library (React & DOM)
+  - jsdom 27.0.0 (browser environment simulation)
+- **Git Hooks**: Lefthook 1.13.6 (pre-commit automation)
+
+### Build & Runtime
+- **Node.js**: Target ES2017
+- **Module System**: ESNext with bundler resolution
+- **Incremental Builds**: TypeScript incremental compilation enabled
+
+## Project Structure
+
+```
+.
+├── app/                    # Next.js App Router pages and layouts
+│   ├── layout.tsx         # Root layout component
+│   ├── page.tsx           # Home page
+│   └── globals.css        # Global styles
+├── .claude/
+│   └── commands/          # Custom slash commands for Claude Code
+├── .kiro/
+│   ├── steering/          # Project-wide AI guidance documents
+│   └── specs/             # Feature specifications (TBD)
+├── doc/                   # Additional documentation
+│   └── openrouter-integration/  # OpenRouter setup and usage
+├── public/                # Static assets (images, fonts, etc.)
+├── biome.json            # Biome linter/formatter config
+├── tsconfig.json         # TypeScript configuration
+├── next.config.ts        # Next.js configuration
+├── vitest.config.mts     # Vitest test configuration
+├── lefthook.yml          # Git hooks configuration
+└── CLAUDE.md             # This file - Claude Code project context
+```
+
+### Key Directories
+
+- **app/**: Contains all application routes, layouts, and UI components following Next.js App Router conventions
+- **.claude/commands/**: Houses custom slash commands that extend Claude Code functionality for this project
+- **.kiro/steering/**: Stores steering documents that provide project-wide context to AI assistants
+- **.kiro/specs/**: Contains feature specifications following Kiro-style development methodology
+- **doc/**: Project documentation, including integration guides and architectural decisions
+
+## Testing & Quality
+
+### Testing Setup
+- **Framework**: Vitest with jsdom environment for React component testing
+- **Utilities**: Testing Library for user-centric test patterns
+- **Path Resolution**: vite-tsconfig-paths for TypeScript path mapping support
+
+### Code Quality
+- **Biome Configuration**:
+  - VCS integration with Git
+  - Automatic ignore file detection
+  - React and Next.js domain-specific rules
+  - Auto-organize imports on save
+  - 2-space indentation
+
+### Available Scripts
+```bash
+npm run dev          # Start development server with Turbopack
+npm run build        # Production build with Turbopack
+npm run start        # Start production server
+npm run lint         # Run Biome linter
+npm run format       # Format code with Biome
+npm run format:check # Check formatting without writing
+npm run test         # Run tests with Vitest
+npm run typecheck    # TypeScript type checking
+```
+
 ## Workflow
 
 ### Phase 0: Steering (Optional)
